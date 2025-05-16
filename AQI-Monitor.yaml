@@ -1,0 +1,67 @@
+esphome:
+  name: aqi-monitor
+  friendly_name: AQI-Monitor
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Add font file to your ESPHome Installation, config folder
+font:
+  - file: 'test.ttf'
+    id: font1
+    size: 16
+    
+## Serial Port for the IKEA Sensor
+uart:
+  - rx_pin: D7
+    baud_rate: 9600
+
+# Configuration for IKEA PM2.5 sensor  
+sensor:
+  - platform: pm1006
+    pm_2_5:
+      id: pm25_value
+      name: $name 2.5µg
+      
+# Configuration for SSD1306 Display 
+i2c:
+  sda: D1
+  scl: D2
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x32"
+    rotation : 180 # Remove if display is not rotated
+    address: 0x3C
+    lambda: |-
+      if (!isnan(id(pm25_value).state)) {
+        it.printf(18, 5, id(font1), "AQI: %.1f", id(pm25_value).state);
+      } else {
+        it.print(5, 10, id(font1), "PM2.5: N/A");
+      }
+      
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "<ADD YOUR EXCRYPTION KEY OR LET ESPHOME GENERATE ONE>"
+
+ota:
+  - platform: esphome
+    password: "<ADD YOUR PASSWORD OR LET ESPHOME GENERATE ONE>"
+
+# From ESPHome default settings
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Aqi-Monitor Fallback Hotspot"
+    password: "<ADD YOUR PASSWORD OR LET ESPHOME GENERATE ONE>"
+
+captive_portal:
