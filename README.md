@@ -42,3 +42,9 @@ Step 4: Use the ESPHome configuration available in file AQI-Monitor.yaml
 Benchmarked with my Xiaomi air purifier sensor reading : 
 
 ![5](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/5.JPG)
+
+Inspiration and References : 
+1. https://blakadder.com/vindriktning-tasmota/#soldering
+2. https://x.com/anujdeshpandey/status/1917451758122721295?s=46&t=qKYlI_zsh4xyV1qG14RmOA
+3. https://www.youtube.com/watch?v=YmqtMTO5NVc
+4. https://esphome.io/components/display/ssd1306.html
