@@ -1,5 +1,7 @@
 # IKEA-AQI-Sensor-Display-ESPHome
 
+![logo](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/6.JPG)
+
 Ikea makes a great PM2.5 sensor called VINDRIKTNING, but :
     - It doesn't have a display to show value of PM2.5
     - It's not internet enabled so not much you can do with it 
@@ -19,9 +21,24 @@ Requirements :
 
 Step 1: Open the VINDRIKTNING and locate 5v, Gnd and RST pad on the main board 
 
+![1](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/1.jpeg)
+
+
 Step 2: Connect 5v to Vin, Gnd to Gnd and RST to Pin D7
+
+![2](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/2.JPG)
+
 
 Step 3 : Connect Vcc on Oled display to 5v or 3.3v, Gnd to Gnd, SDA to D1 and SCL to D2
 
+![3](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/3.JPG)
+
+
 Step 4: Use the ESPHome configuration available in file AQI-Monitor.yaml 
 
+![4](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/4.JPG)
+
+
+Benchmarked with my Xiaomi air purifier sensor reading : 
+
+![5](https://github.com/iayanpahwa/IKEA-AQI-Sensor-Display-ESPHome/blob/main/img/5.JPG)
